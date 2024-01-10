@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="township_action" model="ir.actions.act_window">
+        <field name="name">Township</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">travel.township</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="travel_root" name="Travel">
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="travel_categ" name="Travel">
+            <!-- This Menu Item must have a parent and an action -->
+            <menuitem id="township_categ" name="Township"  action="township_action" sequence="8"/>
+        </menuitem>
+    </menuitem>
+</odoo>

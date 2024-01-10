@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_travel_township,travel.township,model_travel_township,,1,1,1,1
+access_travel_gate,travel.gate,model_travel_gate,,1,1,1,1

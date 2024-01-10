@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="travel_gate_action" model="ir.actions.act_window">
+        <field name="name">Gates</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">travel.gate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="travel_gate_categ" name="Gates" parent="travel.travel_categ" action="travel_gate_action" sequence="9"/>
+    
+</odoo>
