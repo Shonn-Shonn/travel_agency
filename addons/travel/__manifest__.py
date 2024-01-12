@@ -6,6 +6,7 @@
 
         #views
         "views/travel_gate.xml",
-        "views/township.xml"
+        "views/township.xml",
+        "views/menus.xml"
     ]
 }

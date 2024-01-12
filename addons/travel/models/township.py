@@ -6,6 +6,7 @@ class Township(models.Model):
     _description = 'Township'
 
     name = fields.Char()
+    gate_ids = fields.One2many('travel.gate','township_id')
     
 
     
