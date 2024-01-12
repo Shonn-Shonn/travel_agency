@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data noupdate="1">
+    <record id="travel_agency" model="ir.sequence">
+      <field name="name">Travel Agency</field>
+      <field name="code">travel.agency</field>
+      <field name="prefix">TA</field>
+      <field name="padding">6</field>
+    </record>
+    </data>
+
+</odoo>
