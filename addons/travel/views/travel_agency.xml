@@ -34,6 +34,11 @@
                     <group>
                         <field name="line_no"/>
                     </group>
+                    <field name="travel_car_ids">
+                        <tree editable="bottom">
+                            <field name="car_number"/>
+                        </tree>
+                    </field>
                 </sheet>
             </form>
             <div class="oe_chatter">

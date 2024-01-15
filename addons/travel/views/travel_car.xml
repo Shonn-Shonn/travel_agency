@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <record id="travel_car_view_tree" model="ir.ui.view">
+        <field name="name">travel_car_view_tree</field>
+        <field name="model">travel.car</field>
+        <field name="arch" type="xml">
+            <tree string="travel_car_tree">
+                <field name="car_number"/>
+                <field name="travel_agency_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="travel_car_action" model="ir.actions.act_window">
+        <field name="name">Cars</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">travel.car</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="travel_car_categ" name="Cars" parent="travel_categ" action="travel_car_action"/>
+
+ </odoo>

@@ -13,6 +13,7 @@
         "views/township.xml",
         "views/travel_gate.xml",
         "views/travel_agency.xml",
+        "views/travel_car.xml",
         "views/menus.xml"
     ]
 }

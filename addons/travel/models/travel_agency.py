@@ -10,9 +10,10 @@ class TravelAgency(models.Model):
     name = fields.Char(tracking=True)
     reference = fields.Char(tracking=True,default=lambda self:_("New"),copy=False)
     line_no = fields.Char(tracking=True)
+    travel_car_ids = fields.One2many('travel.car','travel_agency_id')
 
     _sql_constraints = [
-        ('line_no_uniq', 'CHECK(1=1)',
+        ('line_no_uniq', 'unique(line_no)',
          'Liscense number must be unique.')
     ]
 
