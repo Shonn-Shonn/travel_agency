@@ -3,3 +3,5 @@ access_travel_township,travel.township,model_travel_township,,1,1,1,1
 access_travel_gate,travel.gate,model_travel_gate,,1,1,1,1
 access_travel_agency,travel.agency,model_travel_agency,,1,1,1,1
 access_travel_car,travel.car,model_travel_car,,1,1,1,1
+access_change_driver_wizard,change.driver.wizard,model_change_driver_wizard,,1,1,1,1
+access_travel_driver_history,travel.driver.history,model_travel_driver_history,,1,1,1,1

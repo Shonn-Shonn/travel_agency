@@ -12,10 +12,10 @@ class TravelAgency(models.Model):
     line_no = fields.Char(tracking=True)
     travel_car_ids = fields.One2many('travel.car','travel_agency_id')
 
-    _sql_constraints = [
-        ('line_no_uniq', 'unique(line_no)',
-         'Liscense number must be unique.')
-    ]
+    # _sql_constraints = [
+    #     ('line_no_uniq', 'unique(line_no)',
+    #      'Liscense number must be unique.')
+    # ]
 
     @api.constrains('name')
     def _check_name(self):

@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
+    
+    <record id="travel_car_view_form" model="ir.ui.view">
+        <field name="name">travel_car_view_form</field>
+        <field name="model">travel.car</field>
+        <field name="arch" type="xml">
+            <form string="travel_car_form">
+                <sheet>
+
+                    <header>
+                        <button name="action_draft" type="object" string="Rest to Draft"
+                                attrs="{'invisible': [('state', '!=', 'running')]}"/>
+                        <button name="action_change_driver" type="object" string="Change Driver"  class="btn btn-info"
+                                attrs="{'invisible': [('state','!=','running')]}"/>
+                        <button name="action_running" type="object" string="Running"
+                                attrs="{'invisible': [('state','!=','draft')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+
+                    <group>
+                        <field name="car_number"/>
+                        <field name="travel_agency_id"/>
+                        <field name="car_driver" readonly="1"/>
+                        <field name="join_date" readonly="1"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <record id="travel_car_view_tree" model="ir.ui.view">
         <field name="name">travel_car_view_tree</field>
@@ -9,6 +39,9 @@
             <tree string="travel_car_tree">
                 <field name="car_number"/>
                 <field name="travel_agency_id"/>
+                <field name="car_driver"/>
+                <field name="join_date"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
