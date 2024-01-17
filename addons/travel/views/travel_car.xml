@@ -28,10 +28,11 @@
                     </button>
                     </div>
 
-                    <widget name="web_ribbon" bg-color="bg-success" title="Running" attrs="{'invisible': [('state','!=','running')]}"/>
-                    <widget name="web_ribbon" bg-color="bg-danger" title="Draft" attrs="{'invisible': [('state','!=','draft')]}"/>
+                    <!-- <widget name="web_ribbon" bg-color="bg-success" title="Running" attrs="{'invisible': [('state','!=','running')]}"/>
+                    <widget name="web_ribbon" bg-color="bg-danger" title="Draft" attrs="{'invisible': [('state','!=','draft')]}"/> -->
 
                     <group>
+                        <field name="avatar" widget="image" class="oe_avatar"/>
                         <field name="car_number"/>
                         <field name="travel_agency_id"/>
                         <field name="car_driver" readonly="1"/>
@@ -63,8 +64,5 @@
         <field name="res_model">travel.car</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="travel_car_categ" name="Cars" parent="travel_categ" action="travel_car_action"/>
 
  </odoo>

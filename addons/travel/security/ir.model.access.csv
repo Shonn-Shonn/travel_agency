@@ -5,3 +5,4 @@ access_travel_agency,travel.agency,model_travel_agency,,1,1,1,1
 access_travel_car,travel.car,model_travel_car,,1,1,1,1
 access_change_driver_wizard,change.driver.wizard,model_change_driver_wizard,,1,1,1,1
 access_travel_driver_history,travel.driver.history,model_travel_driver_history,,1,1,1,1
+access_transpotation_route,transpotation.route,model_transpotation_route,,1,1,1,1

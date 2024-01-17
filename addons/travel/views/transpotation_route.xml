@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="transpotation_route_view_tree" model="ir.ui.view">
+        <field name="name">transpotation_view_tree</field>
+        <field name="model">transpotation.route</field>
+        <field name="arch" type="xml">
+            <tree string="transpotation_route_tree">
+                <field name="car_driver"/>
+                <field name="travel_agency_id"/>
+                <field name="travel_car_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="transpotation_route_action" model="ir.actions.act_window">
+        <field name="name">Transpotation Route</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">transpotation.route</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
