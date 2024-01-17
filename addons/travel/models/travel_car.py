@@ -31,3 +31,13 @@ class TravelCar(models.Model):
             'view_mode' : 'form',
             'target' : 'new',
         }
+
+    def action_driver_history(self):
+       return {
+          'name' : f"{self.car_number}'s history",
+          'type' : 'ir.actions.act_window',
+          'res_model' : 'travel.driver.history',
+          'view_mode': 'tree',
+          'target' : 'current',
+          'domain' : [('travel_car_id','=',self.id)]
+       }

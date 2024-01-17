@@ -1,22 +1,19 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
+    
     <record id="travel_driver_history_view_form" model="ir.ui.view">
         <field name="name">travel_driver_history_view_form</field>
         <field name="model">travel.driver.history</field>
         <field name="arch" type="xml">
-            <form string="travel_driver_history_form">
+            <form string="travel_driver_history_form" create="0" delete="0">
                 <sheet>
                     <group>
-                        <group string="Car Information">
-                            <field name="travel_car_id"/>
-                            <field name="travel_agency"/>
-                        </group>
-                        <group string="Driver Information">
-                            <field name="car_driver"/>
-                            <field name="join_date"/>
-                            <field name="fired_date"/>
-                        </group>
+                        <field name="travel_car_id"/>
+                        <field name="travel_agency"/>
+                        <field name="car_driver"/>
+                        <field name="join_date"/>
+                        <field name="fired_date"/>
                     </group>
                 </sheet>
             </form>
@@ -27,14 +24,16 @@
         <field name="name">travel_driver_history_view_tree</field>
         <field name="model">travel.driver.history</field>
         <field name="arch" type="xml">
-            <tree string="_tree">
+            <tree string="travel_driver_history_tree" create="0" delete="0">
                 <field name="travel_car_id"/>
+                <field name="travel_agency"/>
                 <field name="car_driver"/>
                 <field name="join_date"/>
                 <field name="fired_date"/>
             </tree>
         </field>
     </record>
+
 
     <record id="travel_driver_history_action" model="ir.actions.act_window">
         <field name="name">Driver History</field>

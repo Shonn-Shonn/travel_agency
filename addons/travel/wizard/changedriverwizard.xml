@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
+    <record id="change_driver_wizard_view_tree" model="ir.ui.view">
+        <field name="name">change_driver_wizard_view_tree</field>
+        <field name="model">change.driver.wizard</field>
+        <field name="arch" type="xml">
+            <tree string="change_driver_wizard_tree">
+                <field name="car_driver"/>
+                <field name="join_date"/>
+            </tree>
+        </field>
+    </record>
     <record id="change_driver_wizard_view_form" model="ir.ui.view">
         <field name="name">change_driver_wizard_view_form</field>
         <field name="model">change.driver.wizard</field>

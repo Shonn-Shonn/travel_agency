@@ -7,9 +7,8 @@
         <field name="model">travel.car</field>
         <field name="arch" type="xml">
             <form string="travel_car_form">
-                <sheet>
 
-                    <header>
+                <header>
                         <button name="action_draft" type="object" string="Rest to Draft"
                                 attrs="{'invisible': [('state', '!=', 'running')]}"/>
                         <button name="action_change_driver" type="object" string="Change Driver"  class="btn btn-info"
@@ -17,8 +16,20 @@
                         <button name="action_running" type="object" string="Running"
                                 attrs="{'invisible': [('state','!=','draft')]}"/>
                         <field name="state" widget="statusbar"/>
-                    </header>
+                </header>
 
+                <sheet>    
+                    <div class="oe_button_box" name="button_box">
+                    <button name="action_driver_history" type="object" class="oe_stat_button" icon="fa-calendar icon">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Driver</span>
+                            <span class="o_stat_text">History</span>
+                        </div>
+                    </button>
+                    </div>
+
+                    <widget name="web_ribbon" bg-color="bg-success" title="Running" attrs="{'invisible': [('state','!=','running')]}"/>
+                    <widget name="web_ribbon" bg-color="bg-danger" title="Draft" attrs="{'invisible': [('state','!=','draft')]}"/>
 
                     <group>
                         <field name="car_number"/>
@@ -41,7 +52,7 @@
                 <field name="travel_agency_id"/>
                 <field name="car_driver"/>
                 <field name="join_date"/>
-                <field name="state"/>
+                <field name="state" widget="badge" decoration-success="state == 'running'" decoration-danger="state == 'draft'"/>
             </tree>
         </field>
     </record>

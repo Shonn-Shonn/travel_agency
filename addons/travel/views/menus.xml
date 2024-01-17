@@ -4,12 +4,17 @@
     <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
     <menuitem id="travel_root" name="Travel">
         <!-- This Menu Item Must have a parent -->
-        <menuitem id="travel_categ" name="Travel">
+        <menuitem id="travel_categ" name="Travel" sequence="1">
             <!-- This Menu Item must have a parent and an action -->
             <menuitem id="township_categ" name="Township"  action="travel.township_action" sequence="0"/>
             <menuitem id="travel_gate_categ" name="Gates"  action="travel.travel_gate_action" sequence="1"/>
-            <menuitem id="travel_agency_categ" name="Agency" action="travel.travel_agency_action" sequence="2"/>
-            <menuitem id="travel_driver_history_categ" name="Driver History" action="travel.travel_driver_history_action" sequence="3"/>
+            <menuitem id="travel_car_categ" name="Cars" action="travel.travel_car_action" sequence="2"/>
+        </menuitem>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="configuration_categ" name="Configuration" sequence="2">
+            <menuitem id="travel_agency_categ" name="Agency" action="travel.travel_agency_action" sequence="0"/>
+            <menuitem id="travel_driver_history_categ" name="Driver History" action="travel.travel_driver_history_action" sequence="1"/>
         </menuitem>
     </menuitem>
 
