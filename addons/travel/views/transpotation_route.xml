@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
+    <record id="transpotation_route_view_form" model="ir.ui.view">
+        <field name="name">transpotation_route_view_form</field>
+        <field name="model">transpotation.route</field>
+        <field name="arch" type="xml">
+            <form string="transpotation_route_form">
+                <sheet>
+                    <field name="avatar" widget="image"/>
+                    <group>
+                        <group string="Agency Information">
+                        <field name="travel_agency_id"/>
+                        <field name="travel_car_id"/>
+                        <field name="car_driver"/>
+                    </group>
+                    <group string="Route Information">
+                    </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
     <record id="transpotation_route_view_tree" model="ir.ui.view">
         <field name="name">transpotation_view_tree</field>
         <field name="model">transpotation.route</field>
