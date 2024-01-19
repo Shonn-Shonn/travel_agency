@@ -7,15 +7,23 @@
         <field name="arch" type="xml">
             <form string="transpotation_route_form">
                 <sheet>
-                    <field name="avatar" widget="image"/>
-                    <group>
-                        <group string="Agency Information">
+                    <group string="Agency Information">
+                        <field name="avatar" widget="image" class="oe_avatar"/>
                         <field name="travel_agency_id"/>
                         <field name="travel_car_id"/>
                         <field name="car_driver"/>
                     </group>
                     <group string="Route Information">
-                    </group>
+                        <group>
+                            <field name="start_datetime"/>
+                            <field name="start_township"/>
+                            <field name="start_gate"/>
+                        </group>
+                        <group>
+                            <field name="arrive_datetime"/>
+                            <field name="arrive_township"/>
+                            <field name="arrive_gate"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
