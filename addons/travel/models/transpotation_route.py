@@ -7,3 +7,4 @@ class TranspotationRoute(models.Model):
     travel_agency_id = fields.Many2one('travel.agency',required=True)
     travel_car_id = fields.Many2one('travel.car')
     car_driver = fields.Many2one('res.partner',related="travel_car_id.car_driver")
+    avatar = fields.Image(related="travel_car_id.avatar");
