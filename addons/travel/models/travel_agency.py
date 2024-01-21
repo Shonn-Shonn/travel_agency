@@ -11,6 +11,7 @@ class TravelAgency(models.Model):
     reference = fields.Char(tracking=True,default=lambda self:_("New"),copy=False)
     line_no = fields.Char(tracking=True)
     travel_car_ids = fields.One2many('travel.car','travel_agency_id')
+    logo = fields.Image()
 
     # _sql_constraints = [
     #     ('line_no_uniq', 'unique(line_no)',
@@ -31,3 +32,5 @@ class TravelAgency(models.Model):
         if not values.get('reference'):
             values['reference'] = 100
         return super(TravelAgency, self).create(values)
+    
+    

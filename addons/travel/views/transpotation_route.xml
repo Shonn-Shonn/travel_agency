@@ -1,12 +1,138 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
+
+    <record id="transpotation_route_kanban" model="ir.ui.view">
+     <field name="name">transpotation_route_kanban</field>
+     <field name="model">transpotation.route</field>
+     <field name="arch" type="xml">
+        <kanban>
+        <field name="id"/>
+        <field name="travel_agency_id"/>
+        <field name="travel_car_id"/>
+        <field name="starting_gate"/>
+        <field name="starting_township"/>
+        <field name="state"/>
+        <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                                <t t-if="record.travel_agency_id.raw_value">
+                                    <t t-set="background_image" 
+                                    t-value="kanban_image('transpotation.route', 'avatar', record.id.raw_value)"/>
+                                    <div class="o_kanban_image_fill_left d-none d-md-block" 
+                                    t-attf-style="background-image:url('#{background_image}')">
+                                        <img class="o_kanban_image_inner_pic"
+                                            t-if="record.travel_car_id.raw_value"
+                                            t-att-alt="record.travel_car_id.value"
+                                            t-att-src="kanban_image('transpotation.route', 'avatar', record.travel_car_id.raw_value)"/>
+                                    </div>
+                                    <div class="o_kanban_image d-md-none" t-attf-style="background-image: url(#{background_image})">
+                                        <img class="o_kanban_image_inner_pic" t-if="record.travel_agency_id.raw_value" t-att-alt="record.travel_agency_id.value" 
+                                          t-att-src="kanban_image('transpotation.route', 'avatar', record.travel_agency_id.raw_value)"/>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('transpotation.route', 'avatar', record.travel_agency_id.raw_value)})"/>
+                                </t>
+                                <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'running')]}">
+                                    <span class="bg-danger">Draft</span>
+                                </div>
+                                <div class="oe_kanban_details d-flex flex-column justify-content-between">
+                                    <div>
+                                        <strong class="o_kanban_record_title oe_partner_heading"><field name="starting_gate" invisible="1"/></strong>
+                                        <strong class="o_kanban_record_title oe_partner_heading"><field name="starting_township"/></strong>
+                                        <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                        <ul>
+                                            <li t-if="record.tranvel_agency_id"><field name="travel_agency_id"/></li>
+                                            <li t-if="record.travel_car_id" class="o_text_overflow"><field name="travel_car_id"/></li>
+                                        </ul>
+                                    </div>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left"/>
+                                        <div class="oe_kanban_bottom_right"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+            </templates>
+     </kanban>
+     </field>
+    </record>
+    
+    <record id="transpotation_route_view_form" model="ir.ui.view">
+        <field name="name">transpotation_route_view_form</field>
+        <field name="model">transpotation.route</field>
+        <field name="arch" type="xml">
+            <form string="transpotation_route_form">
+            <header>
+               <button type="object" name="action_state" class="btn btn-warning"/>
+               <field name="state" widget="status-bar"/>
+            </header>
+                <sheet>
+                    <field name="avatar" widget="image" class="oe_avatar"/>
+                        <group string="Travel Information">
+                           <field name="travel_agency_id"/>
+                           <field name="travel_car_id"/>
+                           <field name="car_driver"/>
+                       </group>
+
+                    <group string="Destination">
+                            <group>
+                                <field name="starting_date"/>
+                                <field name="starting_township"/>
+                                <field name="starting_gate"/>
+                            </group>
+                            <group>
+                                <field name="arriving_date"/>
+                                <field name="arriving_township"/>
+                                <field name="arriving_gate" domain="[('township_id','=',arriving_township)]"/>
+                            </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="transpotation_route_view_tree" model="ir.ui.view">
+        <field name="name">transpotation_route_view_tree</field>
+        <field name="model">transpotation.route</field>
+        <field name="arch" type="xml">
+            <tree string="transpotation_route_tree">
+                <field name="travel_agency_id"/>
+                <field name="travel_car_id"/>
+                <field name="car_driver"/>
+                <field name="state"/>
+                <field name="starting_township"/>
+                <field name="starting_gate"/>
+                <field name="arriving_township"/>
+                <field name="arriving_gate"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="transpotation_route_search" model="ir.ui.view">
+       <field name="name">transpotation_route_search</field>
+       <field name="model">transpotation.route</field>
+        <field name="arch" type="xml">
+            <search>
+              <field name="travel_agency_id"/>
+              <field name="travel_car_id"/>
+              <field name="state"/>
+              <filter name="Draft" domain="[('state','=','draft')]"/>
+              <filter name="Running" domain="[('state','=','running')]"/>
+              <filter name="Confirm" domain="[('state','=','confirm')]"/>
+              <group>
+                <filter name="state" context="{'group_by' : 'state'}"/>
+              </group>
+            </search>
+       </field>
+    </record>
    
 
     <record id="transpotation_route_action" model="ir.actions.act_window">
         <field name="name">Transpotation Route</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">transpotation.route</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 </odoo>
