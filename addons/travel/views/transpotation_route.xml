@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
-<<<<<<< HEAD
-=======
 
     <record id="transpotation_route_kanban" model="ir.ui.view">
      <field name="name">transpotation_route_kanban</field>
@@ -15,26 +13,28 @@
         <field name="starting_gate"/>
         <field name="starting_township"/>
         <field name="state"/>
+        <field name="avatar"/>
+        <field name="logo"/>
         <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
-                                <t t-if="record.travel_agency_id.raw_value">
+                                <t t-if="record.travel_agency_id">
                                     <t t-set="background_image" 
                                     t-value="kanban_image('transpotation.route', 'avatar', record.id.raw_value)"/>
                                     <div class="o_kanban_image_fill_left d-none d-md-block" 
                                     t-attf-style="background-image:url('#{background_image}')">
                                         <img class="o_kanban_image_inner_pic"
-                                            t-if="record.travel_car_id.raw_value"
+                                            t-if="record.travel_car_id"
                                             t-att-alt="record.travel_car_id.value"
-                                            t-att-src="kanban_image('transpotation.route', 'avatar', record.travel_car_id.raw_value)"/>
+                                            t-att-src="kanban_image('transpotation.route', 'logo', record.id.raw_value)"/>
                                     </div>
                                     <div class="o_kanban_image d-md-none" t-attf-style="background-image: url(#{background_image})">
-                                        <img class="o_kanban_image_inner_pic" t-if="record.travel_agency_id.raw_value" t-att-alt="record.travel_agency_id.value" 
-                                          t-att-src="kanban_image('transpotation.route', 'avatar', record.travel_agency_id.raw_value)"/>
+                                        <img class="o_kanban_image_inner_pic" t-if="record.travel_agency_id" t-att-alt="record.travel_agency_id.value" 
+                                          t-att-src="kanban_image('transpotation.route', 'logo', record.travel_agency_id.raw_value)"/>
                                     </div>
                                 </t>
                                 <t t-else="">
-                                    <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('transpotation.route', 'avatar', record.travel_agency_id.raw_value)})"/>
+                                    <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('transpotation.route', 'avatar', record.id.raw_value)})"/>
                                 </t>
                                 <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'running')]}">
                                     <span class="bg-danger">Draft</span>
@@ -61,56 +61,29 @@
      </field>
     </record>
     
->>>>>>> 762a02f5900560c1e88649435148ddc4016f886d
     <record id="transpotation_route_view_form" model="ir.ui.view">
         <field name="name">transpotation_route_view_form</field>
         <field name="model">transpotation.route</field>
         <field name="arch" type="xml">
             <form string="transpotation_route_form">
-<<<<<<< HEAD
                 <sheet>
                     <group string="Agency Information">
-                        <field name="avatar" widget="image" class="oe_avatar"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
                         <field name="travel_agency_id"/>
                         <field name="travel_car_id"/>
                         <field name="car_driver"/>
                     </group>
                     <group string="Route Information">
                         <group>
-                            <field name="start_datetime"/>
-                            <field name="start_township"/>
-                            <field name="start_gate"/>
+                            <field name="starting_date"/>
+                            <field name="starting_township"/>
+                            <field name="starting_gate"/>
                         </group>
                         <group>
-                            <field name="arrive_datetime"/>
-                            <field name="arrive_township"/>
-                            <field name="arrive_gate"/>
+                            <field name="arriving_date"/>
+                            <field name="arriving_township"/>
+                            <field name="arriving_gate"/>
                         </group>
-=======
-            <header>
-               <button type="object" name="action_state" class="btn btn-warning"/>
-               <field name="state" widget="status-bar"/>
-            </header>
-                <sheet>
-                    <field name="avatar" widget="image" class="oe_avatar"/>
-                        <group string="Travel Information">
-                           <field name="travel_agency_id"/>
-                           <field name="travel_car_id"/>
-                           <field name="car_driver"/>
-                       </group>
-
-                    <group string="Destination">
-                            <group>
-                                <field name="starting_date"/>
-                                <field name="starting_township"/>
-                                <field name="starting_gate"/>
-                            </group>
-                            <group>
-                                <field name="arriving_date"/>
-                                <field name="arriving_township"/>
-                                <field name="arriving_gate" domain="[('township_id','=',arriving_township)]"/>
-                            </group>
->>>>>>> 762a02f5900560c1e88649435148ddc4016f886d
                     </group>
                 </sheet>
             </form>

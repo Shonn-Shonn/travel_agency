@@ -6,22 +6,11 @@ class TranspotationRoute(models.Model):
     _description = 'TranspotationRoute'
     
     travel_agency_id = fields.Many2one('travel.agency',required=True)
-<<<<<<< HEAD
-    travel_car_id = fields.Many2one('travel.car')
-    avatar = fields.Image(related='travel_car_id.avatar')
-    car_driver = fields.Many2one('res.partner',related="travel_car_id.car_driver")
-    start_datetime = fields.Datetime()
-    start_township = fields.Many2one('travel.township')
-    start_gate = fields.Many2one('travel.gate')
-    arrive_datetime = fields.Datetime()
-    arrive_township = fields.Many2one('travel.township')
-    arrive_gate = fields.Many2one('travel.gate')
-=======
     logo = fields.Image(related='travel_agency_id.logo')
     travel_car_id = fields.Many2one('travel.car',domain="[('travel_agency_id','=',travel_agency_id)]")
     avatar = fields.Image(related='travel_car_id.avatar')
     car_driver = fields.Many2one('res.partner',related="travel_car_id.car_driver")
-    avatar = fields.Image(related="travel_car_id.avatar");
+    avatar = fields.Image(related="travel_car_id.avatar")
     starting_date = fields.Datetime()
     starting_township = fields.Many2one('travel.township')
     starting_gate = fields.Many2one('travel.gate',domain="[('township_id','=',starting_township)]")
@@ -61,4 +50,4 @@ class TranspotationRoute(models.Model):
     
     def action_state(self):
         self.state = "confirm" 
->>>>>>> 762a02f5900560c1e88649435148ddc4016f886d
+

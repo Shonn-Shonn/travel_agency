@@ -9,6 +9,7 @@
             <form string="travel_agency_form">
                 <sheet>
                     <group>
+                        <field name="logo" widget="image"/> 
                         <field name="name"/>
                         <field name="reference"/>
                         <field name="line_no"/>
