@@ -4,6 +4,13 @@
     <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
     <menuitem id="travel_root" name="Travel">
         <!-- This Menu Item Must have a parent -->
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="taravel_booking_categ" name="Booking"  sequence="2">
+            <!-- This Menu Item must have a parent and an action -->
+            <menuitem id="travel_booking_categ" name="Booking" action="travel.travel_booking_action" sequence="1"/>
+        </menuitem>
+
         <menuitem id="travel_categ" name="Travel" sequence="1">
             <!-- This Menu Item must have a parent and an action -->
             <menuitem id="travel_township_categ" name="Township"  action="travel.travel_township_action" sequence="0"/>
@@ -13,7 +20,7 @@
         </menuitem>
 
         <!-- This Menu Item Must have a parent -->
-        <menuitem id="configuration_categ" name="Configuration" sequence="2">
+        <menuitem id="configuration_categ" name="Configuration" sequence="3">
             <menuitem id="travel_agency_categ" name="Agency" action="travel.travel_agency_action" sequence="0"/>
             <menuitem id="travel_driver_history_categ" name="Driver History" action="travel.travel_driver_history_action" sequence="1"/>
         </menuitem>

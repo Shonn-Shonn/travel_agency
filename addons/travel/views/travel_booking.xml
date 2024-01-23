@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <record id="travel_booking_view_form" model="ir.ui.view">
+        <field name="name">travel_booking_view_form</field>
+        <field name="model">travel.booking</field>
+        <field name="arch" type="xml">
+            <form string="travel_booking_form">
+                <sheet>
+                    <group>
+                        <field name="partner_ids" widget="many2many_tags"/>
+                        <field name="travel_agency_id"/>
+                        <field name="travel_car_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="travel_booking_action" model="ir.actions.act_window">
+        <field name="name">travel_booking</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">travel.booking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

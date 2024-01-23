@@ -36,9 +36,16 @@
                                 <t t-else="">
                                     <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('transpotation.route', 'avatar', record.id.raw_value)})"/>
                                 </t>
-                                <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'running')]}">
+                                <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'draft')]}">
                                     <span class="bg-danger">Draft</span>
                                 </div>
+                                <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state','!=','confirm')]}">
+                                    <span class="bg-success">Confirm</span>
+                                </div>
+                                 <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state','!=','running')]}">
+                                    <span class="bg-warning">Running</span>
+                                </div>
+
                                 <div class="oe_kanban_details d-flex flex-column justify-content-between">
                                     <div>
                                         <strong class="o_kanban_record_title oe_partner_heading"><field name="starting_gate" invisible="1"/></strong>
@@ -66,6 +73,12 @@
         <field name="model">transpotation.route</field>
         <field name="arch" type="xml">
             <form string="transpotation_route_form">
+                <header>
+                    <button name="action_draft" class="btn btn-danger" type="object" string="Draft" state="confirm"/>
+                    <button name="action_confirm" class="btn btn-success" type="object" string="Confirm" state="running" />
+                    <button name="action_running" class="btn btn-warning" type="object" string="Running" state="draft"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
                 <sheet>
                     <group string="Agency Information">
                         <field name="logo" widget="image" class="oe_avatar"/>

@@ -48,6 +48,12 @@ class TranspotationRoute(models.Model):
             raise UserError('Starting date time must be less.')   
     
     
-    def action_state(self):
-        self.state = "confirm" 
+    def action_confirm(self):
+        self.state = "confirm"
+
+    def action_draft(self):
+        self.state = "draft"
+
+    def action_running(self):
+        self.state = "running"
 
