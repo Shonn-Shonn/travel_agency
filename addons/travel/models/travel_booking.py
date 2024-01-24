@@ -5,6 +5,7 @@ class TravelBooking(models.Model):
     _description = 'TravelBooking'
 
     partner_ids = fields.Many2many('res.partner')
+    transpotation_route_id = fields.Many2one('transpotation.route', domain="[('state','=','confirm')]")
     travel_agency_id = fields.Many2one('travel.agency')
     travel_car_id = fields.Many2one('travel.car', domain="[('travel_agency_id','=',travel_agency_id)]")
 

@@ -38,6 +38,7 @@
                         <field name="car_driver" readonly="1"/>
                         <field name="join_date" readonly="1"/>
                         <field name="state"/>
+                        <field name="seat"/>
                     </group>
                 </sheet>
             </form>
@@ -54,6 +55,7 @@
                 <field name="car_driver"/>
                 <field name="join_date"/>
                 <field name="state" widget="badge" decoration-success="state == 'running'" decoration-danger="state == 'draft'"/>
+                <field name="seat" widget="badge"/>
             </tree>
         </field>
     </record>

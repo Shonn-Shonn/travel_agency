@@ -11,6 +11,7 @@ class TranspotationRoute(models.Model):
     avatar = fields.Image(related='travel_car_id.avatar')
     car_driver = fields.Many2one('res.partner',related="travel_car_id.car_driver")
     avatar = fields.Image(related="travel_car_id.avatar")
+    seat = fields.Integer(related="travel_car_id.seat")
     starting_date = fields.Datetime()
     starting_township = fields.Many2one('travel.township')
     starting_gate = fields.Many2one('travel.gate',domain="[('township_id','=',starting_township)]")

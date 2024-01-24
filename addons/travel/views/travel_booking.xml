@@ -10,11 +10,25 @@
                 <sheet>
                     <group>
                         <field name="partner_ids" widget="many2many_tags"/>
+                        <field name="transpotation_route_id"/>
                         <field name="travel_agency_id"/>
                         <field name="travel_car_id"/>
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="travel_booking_view_tree" model="ir.ui.view">
+        <field name="name">travel_booking_view_tree</field>
+        <field name="model">travel.booking</field>
+        <field name="arch" type="xml">
+            <tree string="travel_booking_tree">
+                <field name="partner_ids"/>
+                <field name="transpotation_route_id"/>
+                <field name="travel_agency_id"/>
+                <field name="travel_car_id"/>
+            </tree>
         </field>
     </record>
 

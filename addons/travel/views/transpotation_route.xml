@@ -85,6 +85,7 @@
                         <field name="travel_agency_id"/>
                         <field name="travel_car_id"/>
                         <field name="car_driver"/>
+                        <field name="seat" widget="badge"/>
                     </group>
                     <group string="Route Information">
                         <group>
@@ -116,6 +117,7 @@
                 <field name="starting_gate"/>
                 <field name="arriving_township"/>
                 <field name="arriving_gate"/>
+                <field name="seat" widget="badge"/>
             </tree>
         </field>
     </record>

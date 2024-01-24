@@ -12,6 +12,7 @@ class TravelCar(models.Model):
         ('draft','Draft'),
         ('running','Running')
     ],default="draft")
+    seat = fields.Integer()
     avatar = fields.Image()
 
     def name_get(self):
