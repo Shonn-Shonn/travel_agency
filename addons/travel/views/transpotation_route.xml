@@ -85,20 +85,39 @@
                         <field name="travel_agency_id"/>
                         <field name="travel_car_id"/>
                         <field name="car_driver"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="per_seat"/>
                         <field name="seat" widget="badge"/>
                     </group>
-                    <group string="Route Information">
-                        <group>
-                            <field name="starting_date"/>
-                            <field name="starting_township"/>
-                            <field name="starting_gate"/>
-                        </group>
-                        <group>
-                            <field name="arriving_date"/>
-                            <field name="arriving_township"/>
-                            <field name="arriving_gate"/>
-                        </group>
-                    </group>
+                    <notebook>
+                        <page string="Route Information">
+                            <group>
+                            <group>
+                                <field name="starting_date"/>
+                                <field name="starting_township"/>
+                                <field name="starting_gate"/>
+                            </group>
+                            <group>
+                                <field name="arriving_date"/>
+                                <field name="arriving_township"/>
+                                <field name="arriving_gate"/>
+                            </group>
+                            </group>
+                        </page>
+                        <page string="Booking">
+                            <field name="transpotation_route_line_ids">
+                                <tree editable="1">
+                                    <field name="partner_ids" widget="many2many_tags"/>
+                                    <field name="seat_number"/>
+                                    <field name="company_id" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="amount" sum="total"/>
+                                    <field name="travel_booking_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -117,6 +136,8 @@
                 <field name="starting_gate"/>
                 <field name="arriving_township"/>
                 <field name="arriving_gate"/>
+                <field name="currency_id"/>
+                <field name="per_seat"/>
                 <field name="seat" widget="badge"/>
             </tree>
         </field>

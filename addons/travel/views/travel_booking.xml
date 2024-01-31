@@ -13,6 +13,11 @@
                         <field name="transpotation_route_id"/>
                         <field name="travel_agency_id"/>
                         <field name="travel_car_id"/>
+                         <field name="seat"/>
+                         <field name="per_seat"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="total_amount"/>
                     </group>
                 </sheet>
             </form>
@@ -28,6 +33,7 @@
                 <field name="transpotation_route_id"/>
                 <field name="travel_agency_id"/>
                 <field name="travel_car_id"/>
+                <field name="total_amount"/>
             </tree>
         </field>
     </record>
